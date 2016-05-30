@@ -1,0 +1,37 @@
+	<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+	<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+	<title>无标题文档</title>
+	</head>
+	
+	<style>
+	#div1 {width:200px;height:100px;border:1px solid:#999;background:red;display:block;}
+	</style>
+	<script>
+	function changeWidth(content)
+	{
+		var oDiv=document.getElementById('div1');
+		oDiv.style.width=content;
+	}
+	function changeHeight(content)
+	{
+		var oDiv=document.getElementById('div1');
+		oDiv.style.height=content;
+	}
+	function changeColor(content)
+	{
+		var oDiv=document.getElementById('div1');
+		oDiv.style.background=content;
+	}
+	</script>
+	
+	<body>
+	<input type="button" value="改变宽度"  onclick="changeWidth('400px')" /> 
+	<input type="button" value="改变长度"  onclick="changeHeight('300px')"/>
+	<input type="button" value="改变颜色"  onclick="changeColor('black')"/>
+	<div id="div1">
+	
+	</div>
+	</body>
+	</html>

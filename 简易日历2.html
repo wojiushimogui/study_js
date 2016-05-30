@@ -1,0 +1,71 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>无标题文档</title>
+<style>
+#div1 .active {background:red;}
+</style>
+<script>
+window.onload=function ()
+{
+	var oDiv=document.getElementById('div1');
+	var aBtn=oDiv.getElementsByTagName('input');
+	var aDiv=oDiv.getElementsByTagName('div')[0];//只有一个Div
+	var contentArr=[
+	"这个月是1月噢，你知道吗",
+	"这个月是2月，你们",
+	"这个月是3月，哈哈",
+	"这个月是4月。。。。",
+	"这个月是5月。。。。。",
+	"你知道吗，这个月是6月",
+	"这个月是7月，我们放暑假了",
+	"这个月是8月。。",
+	"这个月是9月。。。。",
+	"这个月是10月。。",
+	"这个月是11月。。",
+	"这个月是12月。"
+	];
+	for(var i=0;i<aBtn.length;i++)
+	{
+		aBtn[i].index=i;
+		aBtn[i].onmouseover=function ()
+		{
+			//先将所有的按钮的高点状态清除，然后将当前的按钮状态高亮显示
+			for(var j=0;j<aBtn.length;j++)
+			{
+				aBtn[j].className='';
+			}
+			this.className='active';
+			
+			//更改div中的内容
+			aDiv.innerHTML='<h1>'+(this.index+1) +'月</h1><p>'+contentArr[this.index]+'</p>';
+			
+		};
+	}
+};
+</script>
+</head>
+
+<body>
+<div id="div1">
+	<input type="button" value="1月"  class="active"/>
+	<input type="button" value="2月" />
+	<input type="button" value="3月" /><br />
+	<input type="button" value="4月" />
+	<input type="button" value="5月" />
+	<input type="button" value="6月" /><br />
+	<input type="button" value="7月" />
+	<input type="button" value="8月" />
+	<input type="button" value="9月" /><br />
+	<input type="button" value="10月" />
+	<input type="button" value="11月" />
+	<input type="button" value="12月" /><br />
+	
+	<div  >
+		<h1>1月</h1>
+		<p>这个月是1月噢，你知道吗</p>
+	</div>
+</div>
+</body>
+</html>

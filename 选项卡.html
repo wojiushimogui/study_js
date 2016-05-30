@@ -1,0 +1,72 @@
+	<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+	<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+	<title>无标题文档</title>
+	<style>
+	#div1 .active {background:yellow;}
+	#div2 div {width:200px;height:100px;border:1px solid #999;display:none ;}
+	</style>
+	<script>
+	window.onload=function ()
+	{
+		var oDiv=document.getElementById('div1');
+		var aBtn=oDiv.getElementsByTagName('input');
+		oDiv=document.getElementById('div2');
+		var aDiv=oDiv.getElementsByTagName('div');
+		
+		for(var i=0;i<aBtn.length;i++)
+		{	
+			aBtn[i].index=i;
+			aBtn[i].onclick=function ()
+			{
+				//先清空所有按钮，然后设置当前按钮
+				for(var k=0;k<aBtn.length;k++)
+				{
+					aBtn[k].className='';
+				}
+				this.className='active';//不能这么写：aBtn[i].className='active';
+				//先将所有的Div消失，然后给将对应的Div显示出来
+				for(var j=0;j<aDiv.length;j++)
+				{
+					aDiv[j].style.display="none";
+				}
+				aDiv[this.index].style.display="block";
+			};
+		}
+		
+		
+	};
+	</script>
+	</head>
+	
+	<body>
+	
+	<div id="div1">
+		<input type="button" value="头条"  class="active" />
+		
+		<input type="button" value="八卦"  />
+		
+		<input type="button" value="看天下"  />
+		
+		<input type="button" value="万象"  />
+	</div>
+	
+	<div id="div2">
+		<div style="display:block">
+			头条。。。。。
+		</div>
+		<div >
+			八卦。。。
+		</div>
+		<div >
+			看天下。。。。
+		</div>
+		<div >
+			万象。。。。。
+		</div>
+	</div>
+	
+	
+	</body>
+	</html>
