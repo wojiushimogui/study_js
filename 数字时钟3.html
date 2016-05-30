@@ -1,0 +1,58 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>无标题文档</title>
+<style>
+#div1 {width:400px;height:100px;background:white;left:200px;top:200px;}
+</style>
+<script>
+//将一位数通过补零补位两位数，而如果num本来是两位数，则不变
+function toDou(num)
+{
+	if(num<10)
+	{
+		return '0'+num;
+	}
+	else
+	{
+		return ''+num;
+	}
+}
+window.onload=function ()
+{
+	var oDiv = document.getElementById('div1');
+	var aImg=oDiv.getElementsByTagName('img');
+
+	setInterval(function()
+	{
+		var date =new Date();
+		//alert(date.getHours());
+		var str=toDou(date.getHours())+toDou(date.getMinutes())+toDou(date.getSeconds());
+		
+		//var str='123234';
+		for(var i=0;i<aImg.length;i++)
+		{
+			aImg[i].src='img/'+str[i]+'.png';
+		}
+	}
+	,1000);
+	//这个版本在程序刚刚启动的时候：在前1000毫秒的时候一直是初始状态
+};
+</script>
+</head>
+
+<body>
+<div id="div1">
+	<img src="img/0.png" />
+	<img src="img/0.png" />
+	：
+	<img src="img/0.png" />
+	<img src="img/0.png" />
+	：
+	<img src="img/0.png" />
+	<img src="img/0.png" />
+	
+</div>
+</body>
+</html>

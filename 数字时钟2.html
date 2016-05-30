@@ -1,0 +1,37 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>无标题文档</title>
+
+<script>
+//实现的功能：开启和关闭定时器
+function show()
+{
+	alert('a');
+}
+window.onload=function ()
+{
+	var oBtn1=document.getElementById('btn1');
+	var oBtn2=document.getElementById('btn2');
+	var timer;
+	oBtn1.onclick=function()
+	{
+		timer=setInterval(show,2000);
+	};
+	oBtn2.onclick=function ()
+	{
+		clearInterval(timer);
+	};
+	
+	
+};
+</script>
+</head>
+
+<body>
+<input id= "btn1" type="button"  value="启动定时器"/>
+
+<input id= "btn2" type="button"  value="关闭定时器"/>
+</body>
+</html>

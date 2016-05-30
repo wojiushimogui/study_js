@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>无标题文档</title>
+
+<style>
+#div1 {width:200px;height:100px;background:red;}
+</style>
+
+<script>
+function getStyle(oDiv,name)
+{
+	if(oDiv.currentStyle)
+	{
+		return oDiv.currentStyle[name];
+	}
+	else
+	{
+		return getComputedStyle(oDiv,false)[name];
+	}
+}
+
+window.onload=function()
+{
+	var oDiv = document.getElementById('div1');
+	//IE11 可行，FF不行，提示oDiv.currentStyle is undefined
+	//alert(oDiv.currentStyle['width']);
+	
+	//在FF 、IE11  可行，在低版本的IE中不行
+	//alert(getComputedStyle(oDiv,false).width);
+	
+	//为了兼容性
+	alert(getStyle(oDiv,'background'));//不能取复合样式，只能取单一样式
+};
+</script>
+</head>
+
+<body>
+<div id="div1">
+</div>
+</body>
+</html>

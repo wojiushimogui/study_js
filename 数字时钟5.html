@@ -1,0 +1,73 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>无标题文档</title>
+<style>
+#div1 {width:800px;height:400px;background:white;left:200px;top:200px;}
+</style>
+<script>
+//如果num的位数不是len，则通过在高位补零使得其长度为len
+function zeroFill(num,len)
+{
+	var originNum=num;
+	var index=0;
+	while(num)
+	{
+		index++;
+		num=parseInt(num/10);//注意：这里要进行转换，num/10是一个小数
+	}
+	var res='';
+	for(var i=0;i<len-index;i++)
+	{
+		res+='0';
+	}
+	return res+originNum;
+}
+window.onload=function ()
+{
+	var oDiv = document.getElementById('div1');
+	var aImg=oDiv.getElementsByTagName('img');
+	function  ticker()
+	{
+		var date =new Date();
+		var str=zeroFill(date.getFullYear(),4)+zeroFill(date.getMonth()+1,2)+zeroFill(date.getDate(),2)+zeroFill(date.getHours(),2)+zeroFill(date.getMinutes(),2)+zeroFill(date.getSeconds(),2);
+		//alert(str);
+		//var str='123234';
+		for(var i=0;i<aImg.length;i++)
+		{
+			//aImg[i].src='img/'+str[i]+'.png';//由于兼容器str[i]  用str.charAt(i)替代比较好;
+			aImg[i].src='img/'+str.charAt(i)+'.png';
+		}
+	}
+	setInterval(ticker,1000);
+	ticker();//在这里直接调用ticker();则就可以消除上一个版本的情况
+};
+</script>
+</head>
+
+<body>
+<div id="div1">
+	<img src="img/0.png" />
+	<img src="img/0.png" />
+	<img src="img/0.png" />
+	<img src="img/0.png" />
+	/
+	<img src="img/0.png" />
+	<img src="img/0.png" />
+	/
+	<img src="img/0.png" />
+	<img src="img/0.png" />
+	//
+	<img src="img/0.png" />
+	<img src="img/0.png" />
+	:
+	<img src="img/0.png" />
+	<img src="img/0.png" />
+	：
+	<img src="img/0.png" />
+	<img src="img/0.png" />
+	
+</div>
+</body>
+</html>

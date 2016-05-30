@@ -1,0 +1,63 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>无标题文档</title>
+<style>
+div { float:left;margin:10px;}
+#div1 {width:50px;height:50px;background:red;}
+#div2 {width:200px;height:100px;background:black;display:none}
+</style>
+<script>
+window.onload=function()
+{
+	var oDiv1=document.getElementById('div1');
+	var oDiv2=document.getElementById('div2');
+	
+	var timer;
+	
+	oDiv1.onmouseover=function ()
+	{
+		clearTimeout(timer);
+		oDiv2.style.display='block';//当鼠标移入到oDiv1中时
+	};
+	
+	oDiv1.onmouseout=function ()
+	{
+		//当鼠标从Div1中离开时，Div2延时1000毫秒才隐藏
+		timer=setTimeout(function()  
+		{
+			oDiv2.style.display='none';
+		},1000);
+		
+		
+	};
+	//当鼠标移入div2上时，显示，不隐藏，并关掉oDiv1上的定时器
+	oDiv2.onmouseover=function()
+	{
+		clearTimeout(timer);
+		this.style.display='block';
+	};
+	//当离开Div2时，则隐藏，如果是离开Div2到div1,则就不隐藏
+	oDiv2.onmouseout=function()
+	{
+		timer=setTimeout(function()
+		{
+			oDiv2.style.display='none';
+		},1000);
+		
+	};
+}
+</script>
+</head>
+
+<body>
+<div id="div1" >
+
+</div>
+
+<div id="div2">
+
+</div>
+</body>
+</html>
