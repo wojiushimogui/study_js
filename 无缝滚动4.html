@@ -1,78 +1,78 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
-<title>无标题文档</title>
-<style>
-* {margin:0; padding:0;}
-#div1 {width:712px;height:108px;margin:100px auto;position:relative;background:red;overflow:hidden;}
-#div1 ul {position:absolute; left:0; top:0;}
-#div1 ul li {float:left; width:178px; height:108px; list-style:none;}
-</style>
-<script>
-window.onload=function()
-{
-	var oDiv = document.getElementById('div1');
-	var oUl = oDiv.getElementsByTagName('ul')[0];
-	var oLi=oUl.getElementsByTagName('li');
-	
-	oUl.innerHTML+=oUl.innerHTML;  //用两倍来进行移动
-	oUl.style.width=oLi[0].offsetWidth*oLi.length+'px';//不能用：oLi[0].style.width
-	var timer;
-	var dis=2;
-	function  move()
-	{	
-		//alert(oUl.offsetLeft);
-		//alert(oUl.offsetWidth);
-		if(oUl.offsetLeft<-oUl.offsetWidth/2)//即当向左滚动出去一半的时候，就立即将ul放在起点位置
-		{
-			oUl.style.left='0px';
-		}
-		if(oUl.offsetLeft>0)//即当向右滚动出去一半的时候，就立即将ul放在起点位置
-		{
-			oUl.style.left=-oUl.offsetWidth/2+'px';
-		}
-		oUl.style.left=oUl.offsetLeft+dis+'px';//由于ul为绝对定位，可以由width/height等来决定
+	<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+	<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+	<title>无标题文档</title>
+	<style>
+	* {margin:0; padding:0;}
+	#div1 {width:712px;height:108px;margin:100px auto;position:relative;background:red;overflow:hidden;}
+	#div1 ul {position:absolute; left:0; top:0;}
+	#div1 ul li {float:left; width:178px; height:108px; list-style:none;}
+	</style>
+	<script>
+	window.onload=function()
+	{
+		var oDiv = document.getElementById('div1');
+		var oUl = oDiv.getElementsByTagName('ul')[0];
+		var oLi=oUl.getElementsByTagName('li');
 		
-	}
-	timer=setInterval(move,100);
-	
-	//当我们鼠标移动到div上面时，就应该停止
-	oDiv.onmouseover=function()
-	{
-		clearInterval(timer);
-	};
-	oDiv.onmouseout=function()
-	{
+		oUl.innerHTML+=oUl.innerHTML;  //用两倍来进行移动
+		oUl.style.width=oLi[0].offsetWidth*oLi.length+'px';//不能用：oLi[0].style.width
+		var timer;
+		var dis=2;
+		function  move()
+		{	
+			//alert(oUl.offsetLeft);
+			//alert(oUl.offsetWidth);
+			if(oUl.offsetLeft<-oUl.offsetWidth/2)//即当向左滚动出去一半的时候，就立即将ul放在起点位置
+			{
+				oUl.style.left='0px';
+			}
+			if(oUl.offsetLeft>0)//即当向右滚动出去一半的时候，就立即将ul放在起点位置
+			{
+				oUl.style.left=-oUl.offsetWidth/2+'px';
+			}
+			oUl.style.left=oUl.offsetLeft+dis+'px';//由于ul为绝对定位，可以由width/height等来决定
+			
+		}
 		timer=setInterval(move,100);
+		
+		//当我们鼠标移动到div上面时，就应该停止
+		oDiv.onmouseover=function()
+		{
+			clearInterval(timer);
+		};
+		oDiv.onmouseout=function()
+		{
+			timer=setInterval(move,100);
+		};
+		
+		var oBtn1=document.getElementById('btn1');
+		var oBtn2=document.getElementById('btn2');
+		btn1.onclick=function()
+		{
+			dis=-2;
+		};
+		btn2.onclick=function()
+		{
+			dis=2;
+		};
+		
 	};
+	</script>
+	</head>
 	
-	var oBtn1=document.getElementById('btn1');
-	var oBtn2=document.getElementById('btn2');
-	btn1.onclick=function()
-	{
-		dis=-2;
-	};
-	btn2.onclick=function()
-	{
-		dis=2;
-	};
-	
-};
-</script>
-</head>
-
-<body>
-<input id="btn1" type="button" value="向左滚动" />
-<input id="btn2" type="button" value="向右滚动" />
-<div id="div1">
-	<ul><!--每个图片大小为：178*108px -->
-		<li><img src="img2/1.jpg" /></li>
-		<li><img src="img2/2.jpg" /></li>
-		<li><img src="img2/3.jpg" /></li>
-		<li><img src="img2/4.jpg" /></li>
-	</ul>
-	
-</div>
-</body>
-</html>
+	<body>
+	<input id="btn1" type="button" value="向左滚动" />
+	<input id="btn2" type="button" value="向右滚动" />
+	<div id="div1">
+		<ul><!--每个图片大小为：178*108px -->
+			<li><img src="img2/1.jpg" /></li>
+			<li><img src="img2/2.jpg" /></li>
+			<li><img src="img2/3.jpg" /></li>
+			<li><img src="img2/4.jpg" /></li>
+		</ul>
+		
+	</div>
+	</body>
+	</html>

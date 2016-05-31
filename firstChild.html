@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>无标题文档</title>
+<script>
+	function getFirstChild(parent)
+	{
+		if(parent.firstChild)
+		{
+			return parent.firstChild;
+		}
+		else
+		{
+			return parent.firstElementChild;
+		}
+	};
+window.onload=function()
+{
+	var oUl=document.getElementById('ul2');
+	var oLi=getFirstChild(oUl);  //在FF IE11  浏览器中，获取第一个子节点，如果第一个子节点是文本节点，则结果就是文本节点对象
+	alert(oLi.nodeType);
+	oLi.style.background='red';
+	
+};
+</script>
+</head>
+
+<body>
+<ul id="ul2">
+	<li>aaaa</li>
+	<li>bbbbb</li>
+	<li>vvvv</li>
+	<li>nnnn</li>
+	<li>dddd</li>
+	<li>ffff</li>
+	<li>gggg</li>
+</ul>
+</body>
+</html>

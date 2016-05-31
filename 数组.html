@@ -1,32 +1,32 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
-<title>无标题文档</title>
-<script>
-window.onload=function ()
-{
-	//var arr=[4,3,2,9,8,7];
-	var arr=new Array(1,2,3);
-	//arr.push(10);//在数组尾部添加一个元素
-	//arr.pop();//在数组尾部删除一个元素
-	//arr.shift();//在数组头部删除一个元素
-	//arr.unshift(99);//在数组头部添加一个元素
+	<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+	<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+	<title>无标题文档</title>
+	<script>
+	window.onload=function ()
+	{
+		//var arr=[4,3,2,9,8,7];
+		var arr=new Array(1,2,3);
+		//arr.push(10);//在数组尾部添加一个元素
+		//arr.pop();//在数组尾部删除一个元素
+		//arr.shift();//在数组头部删除一个元素
+		//arr.unshift(99);//在数组头部添加一个元素
+		
+		
+		//arr.length=4;//数组的length可读可写，此时相当于只保留数组中的前4个元素,length的一个用途可以用于清除数组中的所有元素：length=0
+		//arr.length=10;//当我们设置的长度大于它的实际长度时，则剩下的元素是undefined的
+		//alert(typeof arr[8]);
+		//splice的应用
+		//arr.splice(2,3);//删除数组的元素，splice(起点，删除元素的个数);
+		
+		arr.splice(2,0,21,22,23);//splice(起点，删除元素的个数，元素....);如果删除元素的个数为零，后面还接有元素，则相当于是在起点位置插入元素
+		alert(arr);
 	
+	}
+	</script>
+	</head>
 	
-	//arr.length=4;//数组的length可读可写，此时相当于只保留数组中的前4个元素,length的一个用途可以用于清除数组中的所有元素：length=0
-	//arr.length=10;//当我们设置的长度大于它的实际长度时，则剩下的元素是undefined的
-	//alert(typeof arr[8]);
-	//splice的应用
-	//arr.splice(2,3);//删除数组的元素，splice(起点，删除元素的个数);
-	
-	arr.splice(2,0,21,22,23);//splice(起点，删除元素的个数，元素....);如果删除元素的个数为零，后面还接有元素，则相当于是在起点位置插入元素
-	alert(arr);
-
-}
-</script>
-</head>
-
-<body>
-</body>
-</html>
+	<body>
+	</body>
+	</html>
