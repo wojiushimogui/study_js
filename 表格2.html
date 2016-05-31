@@ -1,0 +1,83 @@
+	<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+	<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+	<title>表格1:移入变色，移出恢复为原来的颜色</title>
+	<script>
+	window.onload=function()
+	{
+		var oTB=document.getElementById('tb1');
+		
+		
+		var aTr=oTB.tBodies[0].rows;//这行语句与这行相同：var aTr=oTB.getElementsByTagName('tbody')[0].getElementsByTagName('tr');
+		//alert(aTr.length);//结果为：6
+		for(var i=0;i<aTr.length;i++)
+		{
+			var originColor=null;
+			aTr[i].onmouseover=function()
+			{
+				originColor=this.style.background;//先保存表格当前行的颜色
+				 this.style.background='red';
+			};
+			aTr[i].onmouseout=function()
+			{
+				this.style.background=originColor;
+			};
+		}
+		
+	};
+	</script>
+	</head>
+	
+	<body>
+	<table id="tb1" border="1">
+		<thead>
+			<tr>
+				<th>学号</th>
+				<th>姓名</th>
+				<th>语文</th>
+				<th>数学</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>1</td>
+				<td>张三</td>
+				<td>78</td>
+				<td>87</td>
+			</tr>
+			<tr>
+				<td>2</td>
+				<td>李四</td>
+				<td>77</td>
+				<td>66</td>
+			</tr>
+			<tr>
+				
+				<td>3</td>
+				<td>王五</td>
+				<td>70</td>
+				<td>80</td>
+			</tr>
+			<tr>
+				<td>4</td>
+				<td>好六</td>
+				<td>35</td>
+				<td>88</td>
+			</tr>
+			<tr>
+				<td>5</td>
+				<td>让七</td>
+				<td>99</td>
+				<td>100</td>
+			</tr>
+			<tr>
+				<td>6</td>
+				<td>吴八</td>
+				<td>89</td>
+				<td>98</td>
+			</tr>
+		</tbody>
+	</table>
+	</body>
+	</html>

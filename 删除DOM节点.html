@@ -1,0 +1,38 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>删除DOM节点</title>
+<script>
+window.onload=function()
+{
+	var oBtn1=document.getElementById('btn1');
+	var oUl=document.getElementById('ul1');
+	oBtn1.onclick=function()
+	{
+		var aLi = oUl.getElementsByTagName('li');
+		if(aLi.length!=0)
+		{
+			oUl.removeChild(aLi[0]);//删除第一个结点
+		}
+		else
+		{
+			alert('这个元素节点下面已经没有节点了');
+		}
+	};
+};
+</script>
+</head>
+
+<body>
+<input id="btn1" type="button" value="删除最前面的节点"/>
+<ul id="ul1">
+	<li>bbbb</li>
+	<li>aaa</li>
+	<li>ccc</li>
+	<li>ddd</li>
+	<li>fff</li>
+	<li>ggg</li>
+</ul>
+</body>
+</html>

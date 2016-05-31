@@ -1,0 +1,32 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>无标题文档</title>
+<script>
+window.onload=function()
+{
+	var oBtn=document.getElementById('btn1');
+	var oDiv=document.getElementById('div1');
+	var oTxt=document.getElementById('txt1');
+	oBtn.onclick=function()
+	{
+		var oLi=document.createElement('li');//创建一个节点
+		oLi.innerHTML=oTxt.value;
+		var aLi=oDiv.getElementsByTagName('li');
+		//下面这行代码在有的浏览器中可能有点问题：就是当div下面没有li元素时，利用aLi[0]取第0个元素会报错
+		oDiv.insertBefore(oLi,aLi[0]);//向标签div中追加一个子节点
+	};
+};
+</script>
+</head>
+
+<body>
+<input id="txt1" type="text"/>
+<input id="btn1" type="button" value="插入节点"/>
+
+<div id="div1">
+
+</div>
+</body>
+</html>
