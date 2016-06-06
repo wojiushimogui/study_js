@@ -6,29 +6,29 @@
 	<script>
 	window.onload=function()
 	{
+		var oTxt1=document.getElementById('txt1');
+		var oTxt2=document.getElementById('txt2');
 		var oBtn = document.getElementById('btn1');
 		var oTB=document.getElementById('tb1');
-		var id=0;
+		
+		var id=1;
 		var oTbody=oTB.tBodies[0];
 		oBtn.onclick=function()
 		{
 			var oTr=document.createElement('tr');
 			var oTd1=document.createElement('td');
 			//学号
-			oTd1.innerHTML=oTbody.rows.length+1;
+			oTd1.innerHTML=id++;
 			oTr.appendChild(oTd1);
 			
 			//姓名
 			var oTd2=document.createElement('td');
-			oTd2.innerHTML='aaa';
+			oTd2.innerHTML=txt1.value;
 			oTr.appendChild(oTd2);
-			//两门成绩
+			//成绩
 			var oTd3=document.createElement('td');
-			oTd3.innerHTML=88;
+			oTd3.innerHTML=txt2.value;
 			oTr.appendChild(oTd3);
-			var oTd4=document.createElement('td');
-			oTd4.innerHTML=99;
-			oTr.appendChild(oTd4);
 			oTbody.appendChild(oTr);
 			
 		};
@@ -40,54 +40,19 @@
 	</head>
 	
 	<body>
+	<input id ="txt1" type="text"  />
+	<input id ="txt2" type="text" />
 	<input id="btn1"   type="button" value="添加一行数据" />
 	<table id="tb1" border="1">
 		<thead>
 			<tr>
 				<th>学号</th>
 				<th>姓名</th>
-				<th>语文</th>
-				<th>数学</th>
+				<th>成绩</th>
 			</tr>
 		</thead>
 		<tbody>
-			<tr>
-				<td>1</td>
-				<td>张三</td>
-				<td>78</td>
-				<td>87</td>
-			</tr>
-			<tr>
-				<td>2</td>
-				<td>李四</td>
-				<td>77</td>
-				<td>66</td>
-			</tr>
-			<tr>
-				
-				<td>3</td>
-				<td>王五</td>
-				<td>70</td>
-				<td>80</td>
-			</tr>
-			<tr>
-				<td>4</td>
-				<td>好六</td>
-				<td>35</td>
-				<td>88</td>
-			</tr>
-			<tr>
-				<td>5</td>
-				<td>让七</td>
-				<td>99</td>
-				<td>100</td>
-			</tr>
-			<tr>
-				<td>6</td>
-				<td>吴八</td>
-				<td>89</td>
-				<td>98</td>
-			</tr>
+			
 		</tbody>
 	</table>
 	</body>

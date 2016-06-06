@@ -2,34 +2,42 @@
 	<html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
 	<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
-	<title>表格1:移入变色，移出恢复为原来的颜色</title>
+	<title>表格:搜索</title>
 	<script>
 	window.onload=function()
 	{
 		var oTB=document.getElementById('tb1');
+		var oTbody=oTB.tBodies[0];
 		
+		var oTxt=document.getElementById('txt1');
+		var oBtn=document.getElementById('btn1');
 		
-		var aTr=oTB.tBodies[0].rows;//这行语句与这行相同：var aTr=oTB.getElementsByTagName('tbody')[0].getElementsByTagName('tr');
-		//alert(aTr.length);//结果为：6
-		for(var i=0;i<aTr.length;i++)
+		oBtn.onclick=function()
 		{
-			var originColor=null;
-			aTr[i].onmouseover=function()
+			var val=oTxt.value;
+		
+			var aTr=oTB.tBodies[0].rows;//这行语句与这行相同：var aTr=oTB.getElementsByTagName('tbody')[0].getElementsByTagName('tr');
+			//alert(aTr.length);//结果为：6
+			for(var i=0;i<aTr.length;i++)
 			{
-				originColor=this.style.background;//先保存表格当前行的颜色
-				 this.style.background='red';
-			};
-			aTr[i].onmouseout=function()
-			{
-				this.style.background=originColor;
-			};
+				aTr[i].style.background='';
+				var aTd=aTr[i].getElementsByTagName('td')[1];
+				if(aTd.innerHTML==oTxt.value)
+				{
+						aTr[i].style.background='red';
+				}
+			}
 		}
+		
+		
 		
 	};
 	</script>
 	</head>
 	
 	<body>
+	<input id="txt1" type="text"  />
+	<input id="btn1" type="button" value="搜索" />
 	<table id="tb1" border="1">
 		<thead>
 			<tr>

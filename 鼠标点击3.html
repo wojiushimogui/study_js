@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>无标题文档</title>
+<style>
+#div1 {width:100px;height:200px;background:red;border:1px solid black;position:absolute}
+</style>
+<script>
+function getXY(ev)
+{
+	var res={};
+	var scrollLeft=document.documentElement.scrollLeft||document.body.scrollLeft;
+	var scrollTop=document.documentElement.scrollTop||document.body.scrollTop;
+	return {x:ev.clientX+scrollLeft,y:ev.clientY+scrollTop};
+	
+}
+window.onload=function()
+{
+	
+	document.onmousemove=function(ev)
+	{
+		var oDiv=document.getElementById('div1');
+		var oEvent=ev||event;
+		var XY=getXY(oEvent);
+		//clientX为可视区内鼠标距最左边的长度
+		//clientY为可视区的高度
+		oDiv.style.left=XY.x+ 'px';
+		oDiv.style.top=XY.y + 'px';
+	};
+};
+</script>
+</head>
+
+<body  >
+<div id="div1">
+asdf
+</div>
+</body>
+</html>
