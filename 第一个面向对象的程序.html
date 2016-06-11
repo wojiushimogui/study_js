@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>无标题文档</title>
+<script>
+window.onload=function()
+{
+	
+};
+
+function TabSwitch(obj)
+{
+	var oDiv= document.getElementById(obj);
+	
+	 this.aBtn = oDiv.getElementsByTagName('input');
+	 this.aDiv = oDiv.getElementsByTagName('div');
+	
+	for(var i=0;i<aBtn.length;i++)
+	{
+		this.aBtn[i].index=i;
+		this.aBtn[i].onclick=my_click;
+	}
+}
+
+function my_click()
+{	
+	
+	for(var j=0;j<this.aBtn.length;j++)
+	{
+		this.aBtn[j].className='';
+		this.aDiv[j].style.display='none';
+	}
+	this.className='active';
+	aDiv[this.index].style.display='block';
+};
+</script>
+</head>
+
+<body>
+</body>
+</html>

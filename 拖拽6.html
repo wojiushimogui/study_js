@@ -1,0 +1,63 @@
+	<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+	<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+	<title>无标题文档</title>
+	<style>
+	#div1 {width:200px;height:200px;background:red;display:block;position:absolute;}
+	</style>
+	<script src="Drag.js">
+	
+	</script>
+	<script>
+	window.onload=function()
+	{
+		new LimitDrag('div1');
+	};
+	function LimitDrag(id)//得到Drag的属性
+	{
+		Drag.call(this,id);
+	};
+	for(var i in Drag.prototype)
+	{
+		LimitDrag.prototype[i]=Drag.prototype[i];
+	}
+	
+	//重写Drag的fnMove方法
+	LimitDrag.prototype.fnMove=function(ev)
+	{
+		var oEvent = ev||event;
+		var l=oEvent.clientX - this.disX;
+		var t=oEvent.clientY - this.disY;
+		/*
+		以下的一些判断处理时防止拖拽被拖出界面之外
+		*/
+		if(l<0)//限制不能移出界面的左边
+		{
+			l=0;
+		}
+		else if(l>document.documentElement.clientWidth-this.oDiv.offsetWidth)//限制不能移出界面的右边
+		{
+			l=document.documentElement.clientWidth-this.oDiv.offsetWidth;
+		}
+		this.oDiv.style.left=l+'px';
+		if(t<0)//限制不能移出界面的上边
+		{
+			t=0;
+		}
+		else if(t>document.documentElement.clientHeight-this.oDiv.offsetHeight)//限制不能移出界面的下边
+		{
+			t=document.documentElement.clientHeight-this.oDiv.offsetHeight;
+		}
+		this.oDiv.style.top=t+'px';
+	};
+	
+	</script>
+	</head>
+	
+	<body>
+	<div id="div1">
+	
+	</div>
+	</body>
+	</html>

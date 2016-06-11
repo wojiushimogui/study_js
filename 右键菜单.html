@@ -1,0 +1,51 @@
+	<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+	<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+	<title>无标题文档</title>
+	<style>
+	#div1 {width:200px;height:200px;background:#ccc;position:absolute;display:none}
+	</style>
+	<script>
+	function getPos(ev)
+	{
+		var scrollLeft=(document.documentElement.scrollLeft||document.body.scrollLeft);
+		var scrollTop=(document.documentElement.scrollTop||document.body.scrollTop);
+		
+		return {x:ev.clientX+scrollLeft,y:ev.clientY+scrollTop};
+		
+	}
+	window.onload=function()
+	{
+		var oDiv = document.getElementById('div1');
+		document.oncontextmenu=function(ev)
+		{
+			var oEvent = ev|| event;
+			var XY=getPos(oEvent);
+			oDiv.style.display='block';
+			oDiv.style.left=XY.x+'px';
+			oDiv.style.top=XY.y+'px';
+			
+			//return false;
+		};
+		document.onclick=function()
+		{
+			
+			oDiv.style.display='none';
+		};
+	};
+	</script>
+	</head>
+	
+	<body>
+	<div id="div1">
+		<ul id="ul1">
+			<li>新建</li>
+			<li>打开</li>
+			<li>复制</li>
+			<li>粘贴</li>
+			<li>...</li>
+		</ul>
+	</div>
+	</body>
+	</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>无标题文档</title>
+<script>
+/*
+注释掉的代码就是系统自动来帮我们做的
+这样我们能够使用new  关键字来创建一个对象
+*/
+function User()
+{
+	//var this = new Object();
+	this.name='wuranghao';
+	this.age=25;
+	this.showName=function()
+	{
+		alert(this.name);
+	};
+	this.showAge=function()
+	{
+		alert(this.age);
+	};
+	//return this;
+};
+
+var obj=new User(); //这样也是可以的
+obj.showName();
+obj.showAge();
+</script>
+</head>
+
+<body>
+</body>
+</html>

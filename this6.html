@@ -1,0 +1,39 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>无标题文档</title>
+<script>
+/*
+注释掉的代码就是系统自动来帮我们做的
+这样我们能够使用new  关键字来创建一个对象
+*/
+function User(name,age)   //构造方法：定义属性
+{
+	//var this = new Object();
+	this.name=name;
+	this.age=age;
+	
+	//return this;
+};
+/*
+使用prototype来定义函数，则其的所有对象实例都共享这一份代码，与Java中用static声明的属性和方法功能类似
+*/
+User.prototype.showName=function()
+{
+	alert(this.name);
+};
+User.prototype.showAge=function()
+{
+	alert(this.age);
+};
+
+var obj=new User('zhangsan',34); 
+var obj2=new User('wangwu',23);
+alert(obj.showName==obj2.showName);//true  
+</script>
+</head>
+
+<body>
+</body>
+</html>
